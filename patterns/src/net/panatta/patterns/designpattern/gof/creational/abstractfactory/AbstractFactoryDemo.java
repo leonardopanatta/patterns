@@ -2,15 +2,13 @@ package net.panatta.patterns.designpattern.gof.creational.abstractfactory;
 
 public class AbstractFactoryDemo {
 	public static void main(String[] args) {
-		DisciplineFactory undergraduationDisciplineFactory = new UndergraduationDisciplineFactory();
-		CollegeClass undergraduationCollegeClass = undergraduationDisciplineFactory.createCollegeClass();
-		undergraduationCollegeClass.setClassNumber(100);
+		CarFactory redCarFactory = new RedCarFactory();
+		CarFactory blueCarFactory = new BlueCarFactory();
 		
-		DisciplineFactory graduationDisciplineFactory = new GraduationDisciplineFactory();
-		CollegeClass graduationCollegeClass = graduationDisciplineFactory.createCollegeClass();
-		graduationCollegeClass.setClassNumber(100);
-		
-		System.out.println(undergraduationCollegeClass.getClassNumber());
-		System.out.println(graduationCollegeClass.getClassNumber());
+		Car redCar = redCarFactory.assemble();
+		Car blueCar = blueCarFactory.assemble();
+
+		System.out.println(redCar.getColor() + " car assembled with chassi number " + redCar.getChassi());
+		System.out.println(blueCar.getColor() + " car assembled with chassi number " + blueCar.getChassi());
 	}
 }
